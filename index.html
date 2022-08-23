@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Grade Checking Application</title>
+    <style>
+      body {
+        background-color: cornsilk;
+      }
+      h1 {
+        text-align: center;
+        color: red;
+      }
+      .allInputFields {
+        padding: 10px;
+        border: 1px solid green;
+        border-radius: 2ch;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 0.9rem;
+        margin: auto;
+        /* align-self: auto; */
+        width: 50%;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <h1>Grade Checking</h1>
+    <div class="allInputFields">
+      <input type="number" id="obtainedNumber" placeholder="Obtained Numbers" />
+      <input type="number" id="totalNumber" placeholder="Total Numbers" />
+      <button onclick="checking()">Check</button>
+      <h3>Your Percentage: <span id="percent"></span></h3>
+      <h3>Your Grade: <span id="grade"></span></h3>
+    </div>
+    <script>
+      function checking() {
+        let obtainedNumbers = +document.querySelector("#obtainedNumber").value;
+        let totalNumbers = +document.querySelector("#totalNumber").value;
+
+        let result = (obtainedNumbers / totalNumbers) * 100;
+        document.querySelector("#percent").innerHTML = result;
+        let grade = "No Grade";
+        if (result >= 80) {
+          grade = "A+";
+        } else if (result >= 70) {
+          grade = "A";
+        } else if (result >= 60) {
+          grade = "B";
+        } else if (result >= 50) {
+          grade = "C";
+        } else if (result >= 40) {
+          grade = "E";
+        } else {
+          grade = "F (You are Failed)";
+        }
+        document.querySelector("#grade").innerHTML = grade;
+      }
+    </script>
+  </body>
+</html>
