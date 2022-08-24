@@ -31,13 +31,13 @@
   </head>
   <body>
     <h1>Grade Checking</h1>
-    <div class="allInputFields">
+    <form onsubmit="checking(); return false" class="allInputFields">
       <input type="number" id="obtainedNumber" placeholder="Obtained Numbers" />
       <input type="number" id="totalNumber" placeholder="Total Numbers" />
-      <button onclick="checking()">Check</button>
+      <button type="submit">Check</button>
       <h3>Your Percentage: <span id="percent"></span></h3>
       <h3>Your Grade: <span id="grade"></span></h3>
-    </div>
+    </form>
     <script>
       function checking() {
         let obtainedNumbers = +document.querySelector("#obtainedNumber").value;
